@@ -2,6 +2,8 @@
 
 > Vue project for study CRUD with firebase
 
+> Preview: https://easy-recipes-f63d5.firebaseapp.com/#/
+
 ## Build Setup
 
 ``` bash
