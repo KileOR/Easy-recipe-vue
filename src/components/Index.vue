@@ -26,17 +26,21 @@ export default {
   },
   methods: {
     deleteRecipe(id) {
-      this.recipes = this.recipes.filter(recipe => {
+      db.collection('recipes').doc(id).delete()
+      .then(() => {
+        this.recipes = this.recipes.filter(recipe => {
         return recipe.id != id
+        })
       })
+      
     }
   },
   created() {
     db.collection('recipes').get()
     .then(snapshot => {
       snapshot.forEach(doc => {
-        let recipe = doc.data()
-        recipe.id = doc.id
+        let recipe = doc.data();
+        recipe.id = doc.id;
         this.recipes.push(recipe)
       })
     })
